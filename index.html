@@ -1,202 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vivre mieux avec NeoLife</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#174b37">
+<title>Boutique NeoLife | Santé, bien-être et agriculture</title>
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f8f4;
-  color: #243328;
-}
-header {
-  background: #087b42;
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
-}
-header h1 {
-  font-size: 27px;
-}
-header p {
-  font-size: 16px;
-}
-nav {
-  background: white;
-  padding: 15px;
-  text-align: center;
-}
-nav a {
-  color: #087b42;
-  text-decoration: none;
-  margin: 10px;
-  font-weight: bold;
-}
-.hero {
-  text-align: center;
-  padding: 35px 15px;
-  background: #e2f3e7;
-}
-.hero h2 {
-  color: #087b42;
-}
-.container {
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
-}
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 18px;
-}
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 8px #ccc;
-}
-.card h3 {
-  color: #087b42;
-}
-button {
-  background: #087b42;
-  color: white;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 7px;
-  cursor: pointer;
-  margin: 5px;
-}
-.payment {
-  background: #e4f1e8;
-  padding: 25px;
-  text-align: center;
-  border-radius: 12px;
-  margin-top: 25px;
-}
-footer {
-  background: #075b32;
-  color: white;
-  text-align: center;
-  padding: 25px;
-  margin-top: 35px;
-}
+:root{--green:#174b37;--green2:#23694d;--gold:#d6a84f;--cream:#f7f6ef;--ink:#1e2a24;--muted:#68756d;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{background:linear-gradient(125deg,#103b2b,#26714f);color:white;padding:30px 18px 34px}
+.wrap{max-width:1100px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:.08em;font-size:14px;color:#f3d99d}.hero h1{font-size:clamp(28px,5vw,48px);line-height:1.08;margin:22px 0 10px;max-width:720px}
+.hero p{color:#e1eee5;max-width:650px;line-height:1.55;margin:0}
+.ratebox{background:#ffffff16;border:1px solid #ffffff3d;border-radius:12px;padding:12px 14px;min-width:210px}
+.ratebox label{display:block;font-size:12px;color:#e1eee5;margin-bottom:6px}.ratebox input{width:100%;padding:9px;border:0;border-radius:7px;font-size:16px;font-weight:bold}
+main{padding:26px 16px 60px}.intro{display:flex;justify-content:space-between;gap:16px;align-items:end;flex-wrap:wrap;margin-bottom:24px}
+h2{margin:0 0 7px;color:var(--green);font-size:25px}.intro p{margin:0;color:var(--muted);line-height:1.45}
+.notice{background:#fff8e7;border-left:4px solid var(--gold);padding:12px 14px;border-radius:6px;color:#67532c;font-size:13px;line-height:1.45;margin:18px 0 26px}
+.category{margin:30px 0}.category h3{font-size:20px;color:var(--green);padding-bottom:10px;border-bottom:1px solid #dce4dc}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:white;border:1px solid #e5e9e2;border-radius:15px;overflow:hidden;box-shadow:0 5px 18px #173b2810;display:flex;flex-direction:column}
+.photo{height:165px;background:linear-gradient(135deg,#edf3eb,#dce9dd);display:flex;align-items:center;justify-content:center;color:#467255;font-weight:800;font-size:17px;letter-spacing:.05em}
+.photo small{display:block;font-size:11px;font-weight:normal;letter-spacing:0;margin-top:6px;color:#6b806e}
+.cardbody{padding:16px;display:flex;flex-direction:column;flex:1}
+.card h4{font-size:18px;margin:0 0 6px;color:#203b2d}.pack{font-size:13px;color:var(--muted);margin-bottom:14px}
+.price{font-size:23px;font-weight:800;color:var(--green)}.local{font-size:15px;color:#6a756d;margin:3px 0 14px}
+.desc{font-size:13px;line-height:1.5;color:#647067;min-height:40px;margin:0 0 14px}
+.btn{display:block;text-align:center;background:#1e7b50;color:white;text-decoration:none;padding:12px;border-radius:8px;font-weight:700;margin-top:auto}
+.btn:hover{background:#155d3b}
+footer{background:#123b2b;color:#dce9df;text-align:center;padding:24px 16px;font-size:13px;line-height:1.6}
+@media(max-width:560px){header{padding-top:22px}.ratebox{width:100%}.photo{height:145px}}
 </style>
 </head>
-
 <body>
-
 <header>
-<h1>VIVRE MIEUX AVEC NEOLIFE</h1>
-<p>Votre boutique Santé & Bien-être</p>
+ <div class="wrap hero">
+  <div class="top"><div class="brand">BOUTIQUE NEOLIFE</div>
+   <div class="ratebox"><label for="rate">Taux de conversion indicatif (1 USD = FC)</label><input id="rate" type="number" min="1" step="0.01" value="2312.54" inputmode="decimal"></div>
+  </div>
+  <h1>Prendre soin de soi, cultiver l’avenir.</h1>
+  <p>Découvrez notre sélection NeoLife pour la nutrition, le bien-être, les soins et l’agriculture. Passez votre commande directement sur WhatsApp.</p>
+ </div>
 </header>
-
-<nav>
-<a href="#accueil">Accueil</a>
-<a href="#produits">Produits</a>
-<a href="#commandes">Commandes</a>
-</nav>
-
-<section class="hero" id="accueil">
-<h2>Bienvenue dans notre boutique !</h2>
-<p>Découvrez les produits NeoLife et prenez soin de votre bien-être.</p>
-<button onclick="document.getElementById('produits').scrollIntoView()">
-Découvrir les produits
-</button>
-</section>
-
-<div class="container" id="produits">
-
-<h2>Nos produits NeoLife</h2>
-
-<div class="products">
-
-<div class="card">
-<h3>Produit NeoLife 1</h3>
-<p>Découvrez notre produit.</p>
-<p>Prix : à confirmer</p>
-<button onclick="commander('Produit NeoLife 1')">
-Commander
-</button>
-</div>
-
-<div class="card">
-<h3>Produit NeoLife 2</h3>
-<p>Découvrez notre produit.</p>
-<p>Prix : à confirmer</p>
-<button onclick="commander('Produit NeoLife 2')">
-Commander
-</button>
-</div>
-
-<div class="card">
-<h3>Produit NeoLife 3</h3>
-<p>Découvrez notre produit.</p>
-<p>Prix : à confirmer</p>
-<button onclick="commander('Produit NeoLife 3')">
-Commander
-</button>
-</div>
-
-</div>
-
-<section class="payment" id="commandes">
-
-<h2>Comment commander ?</h2>
-
-<p>Choisissez votre moyen de commande et de paiement.</p>
-
-<button onclick="commander('Ma commande NeoLife')">
-Commander par WhatsApp
-</button>
-
-<br><br>
-
-<button onclick="payer()">
-Payer en ligne
-</button>
-
-<p id="message"></p>
-
-</section>
-</div>
-
-<footer>
-<h3>VIVRE MIEUX AVEC NEOLIFE</h3>
-<p>Santé - Bien-être - Qualité de vie</p>
-<p>Merci de votre confiance !</p>
-</footer>
-
+<main class="wrap">
+ <div class="intro"><div><h2>Nos produits</h2><p>Les prix sont affichés en dollars américains et en francs congolais.</p></div></div>
+ <div class="notice"><strong>Information :</strong> les montants en FC sont des conversions indicatives calculées à partir du taux affiché ci-dessus. Le prix de référence reste le prix en dollars. Les fiches détaillées et les photos officielles seront ajoutées après vérification des références exactes.</div>
+ <div id="catalogue"></div>
+</main>
+<footer><strong>Boutique NeoLife</strong><br>Commandes et renseignements : WhatsApp +243 858 809 639<br>Les produits sont présentés selon les informations disponibles ; consultez toujours l’étiquette officielle pour la composition et le mode d’emploi.</footer>
 <script>
-
-// Remplacez par votre numéro WhatsApp
-const WHATSAPP = "243858809639";
-
-// Ajoutez ici votre véritable lien de paiement
-const PAYMENT_URL = "";
-
-function commander(produit) {
-  let message = "Bonjour, je souhaite commander : " + produit;
-  let url = "https://wa.me/" + WHATSAPP +
-  "?text=" + encodeURIComponent(message);
-  window.open(url, "_blank");
+const whatsapp = "243858809639";
+const categories = [
+ {name:"Santé et bien-être", products:[
+  ["Tre-en-en","60 comprimés",40],
+  ["Pro Vitality","30 sachets",102]
+ ]},
+ {name:"Nutrition et minéraux",products:[
+  ["Cal-Mag chélaté avec vitamine D","90 comprimés",30],
+  ["Zinc chélaté","100 comprimés",34]
+ ]},
+ {name:"Beauté et soins du corps",products:[
+  ["Tonique équilibrant","100 ml",42],
+  ["Gel d’aloe vera","100 ml",32]
+ ]},
+ {name:"Produits pour enfants",products:[
+  ["Vita Guard","120 comprimés",70],
+  ["Vita Squares","180 comprimés",46]
+ ]},
+ {name:"Agriculture et entretien",products:[
+  ["Super Gro","1 litre",36],
+  ["Care","1 litre",26]
+ ]}
+];
+const fmt = n => Math.round(n).toLocaleString("fr-FR").replace(/\u202f/g," ");
+function render(){
+ const rate = Math.max(1, Number(document.getElementById("rate").value)||2312.54);
+ document.getElementById("catalogue").innerHTML = categories.map((cat,ci)=>`
+ <section class="category"><h3>${cat.name}</h3><div class="grid">
+ ${cat.products.map((p,pi)=>{
+  const msg=encodeURIComponent(`Bonjour, je souhaite commander : ${p[0]} (${p[1]}), au prix de ${p[2]} USD. Merci de me renseigner sur la disponibilité et la livraison.`);
+  return `<article class="card">
+   <div class="photo" aria-label="Photo officielle à ajouter">${p[0]}<small>Photo du produit à ajouter</small></div>
+   <div class="cardbody"><h4>${p[0]}</h4><div class="pack">${p[1]}</div>
+   <div class="price">${p[2]} $</div><div class="local">≈ ${fmt(p[2]*rate)} FC</div>
+   <p class="desc">Fiche détaillée à compléter avec les caractéristiques officielles de cette référence.</p>
+   <a class="btn" target="_blank" rel="noopener" href="https://wa.me/${whatsapp}?text=${msg}">Commander sur WhatsApp</a>
+   </div></article>`;
+ }).join("")}</div></section>`).join("");
 }
-
-function payer() {
-  if (PAYMENT_URL === "") {
-    document.getElementById("message").innerText =
-    "Le paiement en ligne sera activé après configuration du service de paiement.";
-  } else {
-    window.open(PAYMENT_URL, "_blank");
-  }
-}
-
+document.getElementById("rate").addEventListener("input",render);
+render();
 </script>
-
 </body>
 </html>
