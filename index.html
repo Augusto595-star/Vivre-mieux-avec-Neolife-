@@ -1,15 +1,19 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#174b37">
-<title>Boutique NeoLife | Santé, bien-être et agriculture</title>
+<meta name="description" content="Boutique NeoLife RDC : nutrition, santé, bien-être, soins et agriculture. Découvrez les produits et commandez facilement via WhatsApp.">
+<meta property="og:title" content="Boutique NeoLife RDC">
+<meta property="og:description" content="Nutrition, santé, agriculture et bien-être NeoLife. Commandes via WhatsApp.">
+<title>Boutique NeoLife RDC | Santé, bien-être et agriculture</title>
 <style>
 :root{--g:#174b37;--g2:#23694d;--gold:#d6a84f;--cream:#f7f6ef;--ink:#1e2a24;--muted:#68756d}
-*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif}
 header{background:linear-gradient(125deg,#103b2b,#26714f);color:white;padding:28px 18px 34px}
 .wrap{max-width:1100px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
-.brand{font-weight:800;letter-spacing:.08em;font-size:14px;color:#f3d99d}
+.brand{font-weight:800;letter-spacing:.06em;font-size:14px;color:#f3d99d}
 h1{font-size:clamp(28px,5vw,46px);line-height:1.08;margin:22px 0 10px}
 header p{color:#e1eee5;max-width:700px;line-height:1.55;margin:0}
 .ratebox{background:#ffffff16;border:1px solid #ffffff3d;border-radius:12px;padding:12px 14px;min-width:210px}
@@ -18,42 +22,72 @@ header p{color:#e1eee5;max-width:700px;line-height:1.55;margin:0}
 main{padding:26px 16px 60px}.intro{margin-bottom:20px}h2{margin:0 0 7px;color:var(--g);font-size:25px}
 .intro p{margin:0;color:var(--muted);line-height:1.45}
 .notice{background:#fff8e7;border-left:4px solid var(--gold);padding:12px 14px;border-radius:6px;color:#67532c;font-size:13px;line-height:1.5;margin:18px 0 26px}
+.searchbox{margin:0 0 12px}.searchbox input{width:100%;padding:14px;border-radius:10px;border:1px solid #d6ddd6;font-size:16px;background:white}
+#productCount{color:var(--muted);font-size:14px;margin:0 0 18px}
 .category{margin:30px 0}.category h3{font-size:20px;color:var(--g);padding-bottom:10px;border-bottom:1px solid #dce4dc}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-.card{background:white;border:1px solid #e5e9e2;border-radius:15px;overflow:hidden;box-shadow:0 5px 18px #173b2810;display:flex;flex-direction:column}
+.card{transition:transform .3s,box-shadow .3s;background:white;border:1px solid #e5e9e2;border-radius:15px;overflow:hidden;box-shadow:0 5px 18px #173b2810;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.12)}
 .photo{height:190px;background:#f2f5ef;display:flex;align-items:center;justify-content:center;padding:12px}
 .photo img{max-width:100%;max-height:100%;object-fit:contain}
 .no-photo{font-size:13px;color:#738276;text-align:center;line-height:1.5}
 .cardbody{padding:16px;display:flex;flex-direction:column;flex:1}
 .card h4{font-size:18px;margin:0 0 6px;color:#203b2d}.pack{font-size:13px;color:var(--muted);margin-bottom:12px}
+.badge{display:inline-block;background:var(--gold);color:#fff;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:10px;align-self:flex-start}
 .price{font-size:23px;font-weight:800;color:var(--g)}.local{font-size:15px;color:#6a756d;margin:3px 0 12px}
 .desc{font-size:13px;line-height:1.55;color:#536157;margin:0 0 12px}
 .source{font-size:12px;margin:0 0 14px}.source a{color:#23694d}
 .btn{display:block;text-align:center;background:#1e7b50;color:white;text-decoration:none;padding:12px;border-radius:8px;font-weight:700;margin-top:auto}
-footer{background:#123b2b;color:#dce9df;text-align:center;padding:24px 16px;font-size:13px;line-height:1.6}
+.testimonials{margin-top:40px;padding:25px;background:white;border-radius:15px}
+.testimonials h2{margin-bottom:8px}.testimonials p{color:var(--muted);line-height:1.5;margin:0}
+footer{background:#123b2b;color:#dce9df;text-align:center;padding:24px 16px;font-size:13px;line-height:1.8}
+footer a{color:#f3d99d}
+.whatsapp-float{position:fixed;right:20px;bottom:20px;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;color:#fff;box-shadow:0 5px 20px rgba(0,0,0,.25);z-index:999}
+#topBtn{position:fixed;bottom:94px;right:27px;border:none;background:var(--g2);color:white;width:45px;height:45px;border-radius:50%;cursor:pointer;font-size:23px;box-shadow:0 4px 12px #0002}
 @media(max-width:560px){header{padding-top:22px}.ratebox{width:100%}.photo{height:165px}}
-</style></head><body>
+</style>
+</head>
+<body>
 <header><div class="wrap">
-<div class="top"><div class="brand">BOUTIQUE NEOLIFE</div>
-<div class="ratebox"><label for="rate">Taux indicatif (1 USD = FC)</label><input id="rate" type="number" min="1" step=".01" value="2312.54" inputmode="decimal"></div></div>
+<div class="top">
+<div class="brand">BOUTIQUE NEOLIFE • ID Distributeur : 026-9702482</div>
+<div class="ratebox"><label for="rate">Taux indicatif (1 USD = FC)</label><input id="rate" type="number" min="1" step=".01" value="2312.54" inputmode="decimal"></div>
+</div>
 <h1>Prendre soin de soi, cultiver l’avenir.</h1>
 <p>Découvrez notre sélection NeoLife pour la nutrition, le bien-être, les soins et l’agriculture. Passez votre commande directement sur WhatsApp.</p>
 </div></header>
-<main class="wrap"><div class="intro"><h2>Nos produits</h2><p>Prix affichés en dollars américains et en francs congolais.</p></div>
-<div class="notice"><strong>À savoir :</strong> les descriptions ci-dessous reprennent les informations publiques disponibles dans le catalogue et les publications NeoLife. Les visuels sont appelés depuis les répertoires d’images produits NeoLife. Leur affichage dépend de la disponibilité des fichiers sur les serveurs NeoLife ; si une image ne charge pas, le site affiche un message de vérification plutôt qu’une photo non officielle. Les prix sont ceux communiqués pour cette boutique et ne sont pas des prix officiels garantis par NeoLife.</div>
-<div id="catalogue"></div></main>
-<footer><strong>Boutique NeoLife</strong><br>Commandes et renseignements : WhatsApp +243 858 809 639<br>Les compléments alimentaires ne remplacent pas une alimentation variée ni l’avis d’un professionnel de santé. Respectez toujours l’étiquette officielle.</footer>
+<main class="wrap">
+<div class="intro"><h2>Nos produits</h2><p>Prix affichés en dollars américains et en francs congolais.</p></div>
+<div class="notice"><strong>À savoir :</strong> les descriptions reprennent les informations publiques disponibles dans les documents et publications NeoLife. Les photos sont chargées depuis des serveurs NeoLife ; leur affichage dépend de la disponibilité des fichiers. Les prix sont ceux communiqués pour cette boutique et ne sont pas des prix officiels garantis par NeoLife.</div>
+<div class="searchbox"><input type="text" id="search" placeholder="Rechercher un produit..." aria-label="Rechercher un produit"></div>
+<p id="productCount" aria-live="polite"></p>
+<div id="catalogue"></div>
+<section class="testimonials">
+<h2>Votre avis compte</h2>
+<p>Vous avez déjà commandé ? Partagez votre expérience avec nous sur WhatsApp. Les témoignages publiés sur cette boutique seront ajoutés avec l’accord de leurs auteurs.</p>
+</section>
+</main>
+<footer>
+<strong>Boutique NeoLife</strong><br>
+Distributeur indépendant NeoLife : 026-9702482<br>
+Commandes WhatsApp : +243 858 809 639<br>
+<a href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Accéder à mon Back Office NeoLife</a><br>
+Les compléments alimentaires ne remplacent pas une alimentation variée ni l’avis d’un professionnel de santé. Respectez toujours l’étiquette officielle.
+</footer>
+<a class="whatsapp-float" href="https://wa.me/243858809639?text=Bonjour%2C%20je%20souhaite%20des%20renseignements%20sur%20les%20produits%20NeoLife." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp">☏</a>
+<button id="topBtn" aria-label="Retour en haut">↑</button>
 <script>
 const whatsapp="243858809639";
 const rateInput=document.getElementById("rate");
+const searchInput=document.getElementById("search");
 const categories=[
 {name:"Santé et bien-être",products:[
 {name:"Tre-en-en",pack:"60 comprimés",price:40,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/bj/product/TreEnEn/landingpage_l.jpg",desc:"Concentré de grains entiers issu du blé, du riz et du soja. NeoLife le présente comme une source de lipides et de stérols végétaux qui contribuent à la nutrition cellulaire.",source:"https://www.neolife.com/es-cr/product/NeoLifeNutritionals/TreEnEn"},
-{name:"Pro Vitality",pack:"30 sachets",price:102,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/ProVitalityPlus/landingpage_l.jpg",desc:"Chaque sachet quotidien rassemble des nutriments provenant de grains entiers, de fruits et légumes et de poisson : lipides et stérols, caroténoïdes, oméga-3, vitamines et minéraux. La fiche NeoLife indique un sachet par jour pour l’adulte ; vérifiez l’étiquette de votre lot.",source:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/tg/product/ProVitalityPlus/fastfacts.pdf"}
+{name:"Pro Vitality",pack:"30 sachets",price:102,popular:true,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/ProVitalityPlus/landingpage_l.jpg",desc:"Chaque sachet quotidien rassemble des nutriments provenant de grains entiers, de fruits et légumes et de poisson : lipides et stérols, caroténoïdes, oméga-3, vitamines et minéraux. La fiche NeoLife indique un sachet par jour pour l’adulte ; vérifiez l’étiquette de votre lot.",source:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/tg/product/ProVitalityPlus/fastfacts.pdf"}
 ]},
 {name:"Nutrition et minéraux",products:[
 {name:"Cal-Mag chélaté avec vitamine D",pack:"90 comprimés",price:30,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/cm/product/ChelatedCalMag/landingpage_l.jpg",desc:"Apporte du calcium et du magnésium sous forme chélatée avec de la vitamine D. NeoLife présente cette formule comme un soutien nutritionnel à la santé osseuse.",source:"https://focus.neolife.com/blog/super-charge-diet/"},
-{name:"Zinc chélaté",pack:"100 comprimés",price:34,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/Zinc/landingpage_l.jpg",desc:"Complément apportant du zinc sous forme chélatée. Le zinc contribue notamment au fonctionnement normal du système immunitaire et au maintien d’une peau, de cheveux et d’ongles normaux. La teneur exacte et la portion doivent être vérifiées sur l’étiquette du produit.",source:"https://www.neolife.com/"}
+{name:"Zinc chélaté",pack:"100 comprimés",price:34,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/ChelatedZinc/landingpage_l.jpg",desc:"Complément apportant du zinc sous forme chélatée. Le zinc contribue notamment au fonctionnement normal du système immunitaire et au maintien d’une peau, de cheveux et d’ongles normaux. La teneur exacte et la portion doivent être vérifiées sur l’étiquette du produit.",source:"https://www.neolife.com/"}
 ]},
 {name:"Beauté et soins du corps",products:[
 {name:"Tonique équilibrant",pack:"100 ml",price:42,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/BalancingTonic/landingpage_l.jpg",desc:"Tonique équilibrant Nutriance Organic, 100 ml. La description NeoLife indique une formule sans alcool, au pH équilibré, avec des extraits d’algue, de ginseng et de ginkgo biloba ; elle tonifie et rafraîchit la peau du visage et du cou.",source:"https://www.doctorfeelbetter.com/products"},
@@ -65,17 +99,30 @@ const categories=[
 ]},
 {name:"Agriculture et entretien",products:[
 {name:"Super Gro",pack:"1 litre",price:36,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/cm/product/SuperGro/landingpage_l.jpg",desc:"Super Gro est un surfactant multi-usage : il réduit la tension superficielle de l’eau, favorise sa pénétration dans le sol et limite le ruissellement et l’évaporation. La fiche NeoLife Cameroun indique une dilution de 1 ml par litre d’eau (1:1 000), pour toutes les plantes. Respectez la notice locale et les consignes des produits associés.",source:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/cm/product/SuperGro/fastfacts.pdf"},
-{name:"Care",pack:"1 litre",price:30,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/ci/product/Care/landingpage_l.jpg",desc:"Care est un désinfectant concentré pour surfaces inertes. La fiche NeoLife indique une dilution de 20 ml par litre d’eau pour un usage général, ou 100 ml par litre pour un usage intensif ; appliquer sur une surface préalablement nettoyée et rincée, puis laisser agir au moins 5 minutes. Rincer les surfaces en contact avec les aliments après désinfection.",source:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/ci/product/Care/fastfacts.pdf"}
+{name:"Care",pack:"1 litre",price:26,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/ci/product/Care/landingpage_l.jpg",desc:"Care est un désinfectant concentré pour surfaces inertes. La fiche NeoLife indique une dilution de 20 ml par litre d’eau pour un usage général, ou 100 ml par litre pour un usage intensif ; appliquer sur une surface préalablement nettoyée et rincée, puis laisser agir au moins 5 minutes. Rincer les surfaces en contact avec les aliments après désinfection.",source:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/ci/product/Care/fastfacts.pdf"}
 ]}
 ];
 const fmt=n=>Math.round(n).toLocaleString("fr-FR").replace(/\u202f/g," ");
 function render(){
+ const keyword=(searchInput.value||"").trim().toLocaleLowerCase("fr");
  const rate=Math.max(1,Number(rateInput.value)||2312.54);
- document.getElementById("catalogue").innerHTML=categories.map(cat=>`<section class="category"><h3>${cat.name}</h3><div class="grid">${cat.products.map(p=>{
- const msg=encodeURIComponent(`Bonjour, je souhaite commander : ${p.name} (${p.pack}), au prix de ${p.price} USD. Merci de me renseigner sur la disponibilité et la livraison.`);
- const photo=p.image?`<img src="${p.image}" alt="Photo NeoLife de ${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;no-photo&quot;>Photo officielle à confirmer</div>'">`:`<div class="no-photo">Photo officielle à confirmer<br>Visuel non inventé</div>`;
- return `<article class="card"><div class="photo">${photo}</div><div class="cardbody"><h4>${p.name}</h4><div class="pack">${p.pack}</div><div class="price">${p.price} $</div><div class="local">≈ ${fmt(p.price*rate)} FC</div><p class="desc">${p.desc}</p><p class="source">Source : <a href="${p.source}" target="_blank" rel="noopener">information NeoLife</a></p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/${whatsapp}?text=${msg}">Commander sur WhatsApp</a></div></article>`;
- }).join("")}</div></section>`).join("");
+ let shown=0;
+ document.getElementById("catalogue").innerHTML=categories.map(cat=>{
+  const filteredProducts=cat.products.filter(p=>p.name.toLocaleLowerCase("fr").includes(keyword));
+  shown+=filteredProducts.length;
+  if(!filteredProducts.length)return "";
+  return `<section class="category"><h3>${cat.name}</h3><div class="grid">${filteredProducts.map(p=>{
+   const msg=encodeURIComponent(`Bonjour, je souhaite commander : ${p.name} (${p.pack}), au prix de ${p.price} USD. Merci de me renseigner sur la disponibilité et la livraison.`);
+   const photo=p.image?`<img src="${p.image}" alt="Photo NeoLife de ${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=&quot;no-photo&quot;>Photo officielle momentanément indisponible</div>'">`:`<div class="no-photo">Photo officielle à confirmer</div>`;
+   return `<article class="card"><div class="photo">${photo}</div><div class="cardbody">${p.popular?'<span class="badge">★ Populaire</span>':''}<h4>${p.name}</h4><div class="pack">${p.pack}</div><div class="price">${p.price} $</div><div class="local">≈ ${fmt(p.price*rate)} FC</div><p class="desc">${p.desc}</p><p class="source">Source : <a href="${p.source}" target="_blank" rel="noopener">information NeoLife</a></p><a class="btn" target="_blank" rel="noopener" href="https://wa.me/${whatsapp}?text=${msg}">Commander sur WhatsApp</a></div></article>`;
+  }).join("")}</div></section>`;
+ }).join("");
+ document.getElementById("productCount").textContent=keyword?`${shown} produit(s) trouvé(s) sur ${categories.reduce((n,c)=>n+c.products.length,0)}.`:`${shown} produits disponibles`;
 }
-rateInput.addEventListener("input",render);render();
-</script></body></html>
+searchInput.addEventListener("input",render);
+rateInput.addEventListener("input",render);
+document.getElementById("topBtn").addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+render();
+</script>
+</body>
+</html>
