@@ -1,158 +1,168 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Boutique indépendante NeoLife : découvrez nos produits de nutrition, de beauté, pour enfants et d'agriculture. Informations en français et commandes WhatsApp.">
-  <meta name="theme-color" content="#176b43">
-  <title>Boutique NeoLife | Vivre mieux</title>
-  <style>
-    :root{--green:#176b43;--green-dark:#104d31;--green-light:#eaf5ee;--ink:#1d2a22;--muted:#647268;--line:#e3eae5;--paper:#fff;--bg:#f5f8f5;--gold:#f2bd45;--shadow:0 8px 24px rgba(20,55,35,.08)}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
-    a{color:inherit}
-    .topbar{background:var(--green-dark);color:#fff;text-align:center;padding:9px 14px;font-size:13px}
-    header{background:linear-gradient(135deg,#176b43,#248454);color:#fff;padding:34px 18px 30px}
-    .wrap{width:min(1120px,100% - 30px);margin:auto}
-    .brand{font-size:12px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;opacity:.9}
-    h1{font-size:clamp(28px,5vw,43px);line-height:1.12;margin:10px 0}
-    .intro{max-width:700px;margin:0;color:#eef8f1;font-size:16px}
-    .header-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
-    .header-actions a{display:inline-block;text-decoration:none;background:#fff;color:var(--green-dark);font-weight:700;padding:10px 15px;border-radius:9px}
-    main{padding:24px 0 45px}
-    .tools{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,230px);gap:12px;margin:0 0 18px}
-    .tools input{width:100%;border:1px solid #d6e1d9;border-radius:10px;padding:13px 14px;font-size:15px;background:#fff;color:var(--ink)}
-    .tools label{display:block;font-size:12px;color:var(--muted);margin:0 0 5px 2px}
-    .count{color:var(--muted);font-size:13px;margin:0 0 18px}
-    .category{margin:28px 0}
-    .category h2{font-size:22px;margin:0 0 14px;padding-left:12px;border-left:5px solid var(--green)}
-    .grid{display:grid;grid-template-columns:repeat( auto-fit,minmax(235px,1fr));gap:17px}
-    .card{background:var(--paper);border:1px solid var(--line);border-radius:15px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
-    .photo{height:205px;background:#fff;display:flex;align-items:center;justify-content:center;padding:12px;border-bottom:1px solid var(--line)}
-    .photo img{width:100%;height:100%;object-fit:contain}
-    .no-photo{color:var(--muted);font-size:13px;text-align:center;padding:25px}
-    .cardbody{padding:16px;display:flex;flex-direction:column;flex:1}
-    .badge{display:inline-block;align-self:flex-start;background:#fff4d8;color:#77520b;border-radius:20px;padding:4px 9px;font-size:11px;font-weight:700;margin-bottom:7px}
-    h3.product-name{font-size:19px;line-height:1.25;margin:0 0 4px}
-    .pack{font-size:13px;color:var(--muted)}
-    .price{font-size:23px;font-weight:800;color:var(--green-dark);margin-top:10px}
-    .local{font-size:14px;font-weight:700;color:#46574b;margin-bottom:13px}
-    .short-desc{font-size:14px;color:#4d5b51;margin:0 0 12px}
-    details.product-details{margin:0 0 13px;border-top:1px solid var(--line);padding-top:11px}
-    details.product-details summary{display:inline-flex;align-items:center;gap:7px;cursor:pointer;list-style:none;color:var(--green);font-weight:700;font-size:14px;padding:7px 0}
-    details.product-details summary::-webkit-details-marker{display:none}
-    details.product-details summary:after{content:'＋';font-size:17px}
-    details.product-details[open] summary:after{content:'−'}
-    .detail-content{font-size:13px;color:#4d5b51;padding:5px 0 2px}
-    .detail-content p{margin:6px 0}
-    .detail-content strong{color:var(--ink)}
-    .btn{display:block;text-align:center;text-decoration:none;background:var(--green);color:#fff;font-weight:700;border-radius:9px;padding:12px 14px;margin-top:auto}
-    .btn:hover{background:var(--green-dark)}
-    .empty{background:#fff;border:1px dashed #cbd8cf;border-radius:12px;padding:25px;text-align:center;color:var(--muted)}
-    .notice{background:var(--green-light);border:1px solid #d6eadc;border-radius:12px;padding:14px 16px;color:#355443;font-size:13px;margin:25px 0}
-    footer{background:#173c2a;color:#eaf4ed;padding:25px 15px;text-align:center;font-size:13px}
-    footer strong{font-size:16px}
-    footer a{color:#fff}
-    .backtop{position:fixed;right:16px;bottom:16px;background:var(--green-dark);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:20px;box-shadow:var(--shadow);cursor:pointer}
-    @media(max-width:620px){.tools{grid-template-columns:1fr}.photo{height:190px}.wrap{width:min(100% - 22px,1120px)}header{padding:27px 0}.grid{grid-template-columns:1fr 1fr;gap:10px}.cardbody{padding:12px}.photo{height:155px}.card h3.product-name{font-size:16px}.price{font-size:20px}.short-desc{font-size:13px}.btn{font-size:13px;padding:11px 8px}}
-    @media(max-width:380px){.grid{grid-template-columns:1fr}.photo{height:190px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#176b45">
+<title>Boutique NeoLife | Vivre mieux</title>
+<style>
+:root{--green:#176b45;--green2:#eaf5ee;--ink:#203128;--muted:#66736b;--line:#e1e9e3;--gold:#f3b544}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#f7faf8;line-height:1.5}
+header{background:linear-gradient(120deg,#104b32,#218354);color:#fff;padding:22px 16px}
+.wrap{max-width:1100px;margin:auto;padding:0 16px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:1.25rem;letter-spacing:.2px}.brand small{display:block;font-size:.78rem;font-weight:400;opacity:.9;margin-top:4px}
+header p{max-width:700px;margin:16px 0 0;color:#e9f6ee}
+nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}nav a{color:white;text-decoration:none;font-weight:700;font-size:.92rem}
+main{padding:24px 0 50px}.notice{background:#fff8e8;border:1px solid #f1dfb8;border-radius:12px;padding:12px 14px;margin:0 0 22px;font-size:.92rem}
+h1{font-size:1.7rem;margin:0 0 8px}h2{font-size:1.3rem;margin:0 0 14px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.tools input,.tools select,.field input,.field textarea,.field select{border:1px solid #ccd9d0;border-radius:10px;padding:12px;font:inherit;background:white}
+.tools input{flex:1;min-width:200px}.tools select{min-width:180px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:white;border:1px solid var(--line);border-radius:15px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 3px 12px #173b2510}
+.photo{height:155px;background:linear-gradient(135deg,#edf6ef,#dceee2);display:flex;align-items:center;justify-content:center;color:#327653;font-size:2.4rem;font-weight:800}
+.photo img{width:100%;height:100%;object-fit:contain;background:#fff}
+.cardbody{padding:14px;display:flex;flex-direction:column;flex:1}.category{font-size:.75rem;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.card h3{font-size:1.05rem;margin:5px 0}.pack{font-size:.85rem;color:var(--muted)}.desc{font-size:.9rem;color:#526158;margin:9px 0 12px;flex:1}
+.price{font-size:1.08rem;font-weight:800;color:var(--green)}.fc{font-size:.82rem;color:var(--muted);font-weight:600}
+button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;font-size:.93rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+.primary{background:var(--green);color:#fff}.secondary{background:var(--green2);color:var(--green);border:1px solid #cfe4d5}.gold{background:var(--gold);color:#352600}
+button:disabled{opacity:.45;cursor:not-allowed}.card button{width:100%;margin-top:12px}
+section{margin-top:32px}.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px}
+.cartline{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:10px 0;align-items:center}.cartline:last-child{border:0}
+.qty{display:flex;align-items:center;gap:7px}.qty button{padding:5px 10px}.total{font-size:1.2rem;font-weight:800;color:var(--green);margin-top:12px}
+.field{display:grid;gap:6px;margin:12px 0}.field label{font-weight:700;font-size:.9rem}.field input,.field textarea,.field select{width:100%}
+.paymethods{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:12px 0}
+.paychoice{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;display:flex;gap:9px;align-items:flex-start;cursor:pointer}
+.paychoice:has(input:checked){border-color:var(--green);background:var(--green2)}
+.paychoice input{margin-top:4px;accent-color:var(--green)}
+.payinfo{background:#f1f7f3;border:1px solid #d7e8dc;padding:13px;border-radius:12px;margin:12px 0}
+.paynumber{font-size:1.15rem;font-weight:800;letter-spacing:.3px}
+.small{font-size:.82rem;color:var(--muted)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
+footer{background:#123e2c;color:#e8f3ec;padding:26px 0;font-size:.9rem}footer a{color:#fff}
+.empty{color:var(--muted);padding:12px 0}
+@media(max-width:600px){h1{font-size:1.4rem}.panel{padding:14px}.top{align-items:flex-start}}
+</style>
 </head>
 <body>
-  <div class="topbar">Boutique NeoLife • Distributeur indépendant : 026-9702482</div>
-  <header>
-    <div class="wrap">
-      <div class="brand">Vivre mieux avec NeoLife</div>
-      <h1>Bienvenue dans notre boutique NeoLife</h1>
-      <p class="intro">Découvrez notre sélection de produits de nutrition, de beauté, pour enfants et d’agriculture. Consultez les informations en français et passez votre commande facilement sur WhatsApp.</p>
-      <div class="header-actions">
-        <a href="#catalogue">Voir les produits</a>
-        <a href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Visiter mon espace NeoLife</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <div class="tools">
-      <div>
-        <label for="searchInput">Rechercher un produit</label>
-        <input id="searchInput" type="search" placeholder="Ex. : zinc, aloe vera, Tre-en-en…" autocomplete="off">
-      </div>
-      <div>
-        <label for="rateInput">Taux de conversion (1 USD = FC)</label>
-        <input id="rateInput" type="number" min="1" step="0.01" value="2312.54" inputmode="decimal">
-      </div>
-    </div>
-    <p class="count" id="productCount" aria-live="polite">10 produits disponibles</p>
-    <div id="catalogue"></div>
-    <div class="notice"><strong>Information importante :</strong> les compléments alimentaires ne remplacent pas une alimentation variée ni un avis médical. Respectez toujours les indications, l’âge recommandé, la portion et les précautions figurant sur l’étiquette du produit. Pour les produits d’entretien et d’agriculture, suivez exclusivement les consignes de leur emballage.</div>
-  </main>
-
-  <footer>
-    <strong>Boutique NeoLife – Vivre mieux</strong><br>
-    Distributeur indépendant NeoLife : 026-9702482<br>
-    Commandes WhatsApp : <a href="https://wa.me/243858809639" target="_blank" rel="noopener">+243 858 809 639</a><br>
-    <span>Informations présentées en français. Vérifiez l’étiquette du produit pour les informations officielles et à jour.</span>
-  </footer>
-  <button class="backtop" id="topBtn" aria-label="Retour en haut" title="Retour en haut">↑</button>
-
-  <script>
-    const whatsapp = "243858809639";
-    const categories = [
-      {name:"Santé et bien-être",products:[
-        {name:"Tre-en-en",pack:"60 comprimés",price:40,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/bj/product/TreEnEn/landingpage_l.jpg",desc:"Tre-en-en de NeoLife est un complément nutritionnel élaboré à partir de concentrés de grains entiers, notamment le blé, le riz et le soja. Il apporte des lipides et des stérols végétaux qui complètent l’alimentation quotidienne.",details:"Cette formule est présentée comme une source de lipides et de stérols végétaux provenant de grains entiers. Elle s’inscrit dans une démarche de complémentation nutritionnelle et ne constitue pas un médicament. Consultez l’étiquette de votre boîte pour connaître la portion recommandée, les ingrédients exacts et les précautions d’emploi."},
-        {name:"Pro Vitality",pack:"30 sachets",price:102,popular:true,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/ProVitalityPlus/landingpage_l.jpg",desc:"Pro Vitality réunit dans des sachets quotidiens différents nutriments provenant notamment de grains entiers, de fruits, de légumes et de poisson.",details:"La formule est décrite comme apportant notamment des lipides et stérols végétaux, des caroténoïdes, des oméga-3, des vitamines et des minéraux. La fiche produit consultée indique un sachet par jour pour l’adulte ; vérifiez toutefois la notice et l’étiquette correspondant à votre lot avant utilisation."}
-      ]},
-      {name:"Nutrition et minéraux",products:[
-        {name:"Cal-Mag chélaté avec vitamine D",pack:"90 comprimés",price:30,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/cm/product/ChelatedCalMag/landingpage_l.jpg",desc:"Cal-Mag chélaté associe du calcium et du magnésium sous forme chélatée à de la vitamine D. Ces nutriments participent notamment au maintien d’une ossature normale.",details:"Le calcium contribue au maintien d’une ossature et d’une dentition normales. Le magnésium participe au fonctionnement normal des muscles et du système nerveux. La vitamine D contribue à l’absorption et à l’utilisation normales du calcium et du phosphore. Vérifiez la quantité par comprimé et la portion sur l’étiquette."},
-        {name:"Zinc chélaté",pack:"100 comprimés",price:34,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/ke/product/Zinc/landingpage_l.jpg",desc:"Le Zinc chélaté de NeoLife apporte du zinc sous une forme chélatée. Le zinc contribue au fonctionnement normal du système immunitaire et au maintien d’une peau, de cheveux et d’ongles normaux.",details:"Le zinc est un oligo-élément essentiel qui intervient dans plusieurs fonctions de l’organisme, notamment le fonctionnement normal du système immunitaire et la protection des cellules contre le stress oxydatif. Respectez la portion indiquée sur l’emballage et évitez de cumuler plusieurs compléments contenant du zinc sans conseil professionnel."}
-      ]},
-      {name:"Beauté et soins du corps",products:[
-        {name:"Tonique équilibrant",pack:"100 ml",price:42,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/BalancingTonic/landingpage_l.jpg",desc:"Le Tonique équilibrant Nutriance Organic est un soin destiné à rafraîchir et tonifier la peau du visage et du cou. La formule est présentée comme sans alcool et au pH équilibré.",details:"La description du produit mentionne notamment des extraits d’algue, de ginseng et de ginkgo biloba. Après le nettoyage du visage, appliquez le tonique selon les indications de l’emballage. Évitez le contact avec les yeux et cessez l’utilisation en cas d’irritation."},
-        {name:"Gel d’aloe vera",pack:"100 ml",price:32,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/AloeVeraGel/landingpage_l.jpg",desc:"Le Gel d’aloe vera Nutriance est un soin cosmétique pour la peau. Sa composition mentionne notamment de l’aloe vera et des ingrédients utilisés dans les soins cutanés.",details:"L’étiquette consultée mentionne du jus ou extrait de feuille d’aloe vera, du panthénol, de l’allantoïne et des extraits botaniques. Appliquez sur la peau selon les indications de l’emballage. Ce produit est destiné à un usage externe ; évitez le contact avec les yeux."}
-      ]},
-      {name:"Produits pour enfants",products:[
-        {name:"Vita Guard",pack:"120 comprimés",price:70,image:"https://s3.amazonaws.com/static.gnld.com/email_blast/neolife/2023/images/vita-gard_vita-squares.jpg",desc:"Vita Guard est un complément à croquer de la gamme de nutrition NeoLife pour enfants, formulé avec des vitamines, des minéraux et des composants nutritionnels issus d’aliments.",details:"Ce produit est destiné à compléter les apports alimentaires et ne remplace pas une alimentation équilibrée. Avant de le donner à un enfant, vérifiez impérativement l’âge minimum, la portion et les précautions figurant sur l’étiquette. Gardez le flacon hors de portée des jeunes enfants."},
-        {name:"Vita Squares",pack:"180 comprimés",price:46,image:"https://s3.amazonaws.com/static.gnld.com/email_blast/neolife/2023/images/vita-gard_vita-squares.jpg",desc:"Vita Squares est un complément multinutritionnel à croquer conçu pour compléter l’alimentation des enfants en vitamines et minéraux.",details:"Les vitamines et minéraux contribuent à différentes fonctions normales de l’organisme. La composition et les quantités exactes doivent être vérifiées sur l’étiquette du produit. Respectez strictement l’âge recommandé et la portion indiquée ; ne laissez pas les comprimés à la portée des petits enfants."}
-      ]},
-      {name:"Agriculture et entretien",products:[
-        {name:"Super Gro",pack:"1 litre",price:36,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/cm/product/SuperGro/landingpage_l.jpg",desc:"Super Gro est un surfactant multi-usage destiné à être dilué dans l’eau. Il aide l’eau à mieux s’étaler et à pénétrer, ce qui peut contribuer à limiter le ruissellement.",details:"La fiche NeoLife consultée indique une dilution de 1 ml de produit par litre d’eau (1:1 000) pour l’usage décrit. Les conditions d’application peuvent varier selon la culture, le traitement associé et les consignes locales. Lisez attentivement l’étiquette et respectez les doses indiquées pour votre usage."},
-        {name:"Care",pack:"1 litre",price:26,image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/ci/product/Care/landingpage_l.jpg",desc:"Care est un désinfectant concentré destiné au nettoyage et à la désinfection de surfaces inertes, selon les usages indiqués par le fabricant.",details:"La fiche produit consultée mentionne des dilutions différentes selon l’intensité de l’usage. La dose, le temps de contact, les surfaces compatibles et la nécessité de rinçage doivent être vérifiés sur l’étiquette de votre bidon. Ne mélangez pas ce produit avec d’autres produits chimiques et gardez-le hors de portée des enfants."}
-      ]}
-    ];
-
-    const fmt = n => Math.round(n).toLocaleString("fr-FR").replace(/\u202f/g," ");
-    const searchInput = document.getElementById("searchInput");
-    const rateInput = document.getElementById("rateInput");
-
-    function escapeHTML(value){
-      return String(value).replace(/[&<>"']/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
-    }
-
-    function render(){
-      const keyword = searchInput.value.trim().toLocaleLowerCase("fr");
-      const rate = Math.max(1, Number(rateInput.value) || 2312.54);
-      let shown = 0;
-      const total = categories.reduce((sum, cat) => sum + cat.products.length, 0);
-      document.getElementById("catalogue").innerHTML = categories.map(cat => {
-        const products = cat.products.filter(p => (p.name + " " + p.desc).toLocaleLowerCase("fr").includes(keyword));
-        shown += products.length;
-        if (!products.length) return "";
-        return `<section class="category"><h2>${escapeHTML(cat.name)}</h2><div class="grid">${products.map(p => {
-          const msg = encodeURIComponent(`Bonjour, je souhaite commander : ${p.name} (${p.pack}), au prix de ${p.price} USD. Merci de me renseigner sur la disponibilité et la livraison.`);
-          const photo = `<img src="${escapeHTML(p.image)}" alt="Photo du produit ${escapeHTML(p.name)}" loading="lazy" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=&quot;no-photo&quot;>Photo momentanément indisponible</div>'">`;
-          return `<article class="card"><div class="photo">${photo}</div><div class="cardbody">${p.popular ? '<span class="badge">★ Produit populaire</span>' : ''}<h3 class="product-name">${escapeHTML(p.name)}</h3><div class="pack">${escapeHTML(p.pack)}</div><div class="price">${fmt(p.price)} USD</div><div class="local">≈ ${fmt(p.price * rate)} FC</div><p class="short-desc">${escapeHTML(p.desc)}</p><details class="product-details"><summary>En savoir plus</summary><div class="detail-content"><p>${escapeHTML(p.details)}</p><p><strong>Conseil :</strong> consultez toujours l’étiquette de votre produit pour les informations officielles, la composition complète et les consignes d’utilisation.</p></div></details><a class="btn" href="https://wa.me/${whatsapp}?text=${msg}" target="_blank" rel="noopener">Commander sur WhatsApp</a></div></article>`;
-        }).join("")}</div></section>`;
-      }).join("");
-      document.getElementById("productCount").textContent = keyword ? `${shown} produit(s) trouvé(s) sur ${total}.` : `${shown} produits disponibles`;
-      if (!shown) document.getElementById("catalogue").innerHTML = '<div class="empty">Aucun produit ne correspond à votre recherche. Essayez un autre mot.</div>';
-    }
-
-    searchInput.addEventListener("input", render);
-    rateInput.addEventListener("input", render);
-    document.getElementById("topBtn").addEventListener("click", () => window.scrollTo({top:0,behavior:"smooth"}));
-    render();
-  </script>
+<header>
+ <div class="wrap">
+  <div class="top">
+   <div class="brand">BOUTIQUE NEOLIFE<small>Distributeur indépendant • ID : 026-9702482</small></div>
+   <a class="btn gold" href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Mon espace NeoLife</a>
+  </div>
+  <p>Découvrez notre sélection de produits NeoLife pour le bien-être, la nutrition et l'entretien. Choisissez vos articles et envoyez votre commande directement sur WhatsApp.</p>
+  <nav><a href="#produits">Produits</a><a href="#panier">Mon panier</a><a href="#paiement">Paiement Mobile Money</a></nav>
+ </div>
+</header>
+<main class="wrap">
+ <div class="notice"><strong>Information paiement :</strong> le règlement se fait par transfert Mobile Money. Après le transfert, envoyez la référence de transaction sur WhatsApp. La commande sera confirmée après vérification effective du paiement.</div>
+ <section id="produits">
+  <h1>Nos produits</h1>
+  <div class="tools">
+   <input id="search" type="search" placeholder="Rechercher un produit…" aria-label="Rechercher un produit">
+   <select id="category" aria-label="Filtrer par catégorie">
+    <option value="">Toutes les catégories</option><option>Nutrition et bien-être</option><option>Minéraux et vitamines</option><option>Soins et hygiène</option><option>Entretien et agriculture</option>
+   </select>
+  </div>
+  <div class="grid" id="catalogue"></div>
+ </section>
+ <section id="panier">
+  <h2>Mon panier</h2>
+  <div class="panel">
+   <div id="cart"><div class="empty">Votre panier est vide. Ajoutez un produit pour commencer.</div></div>
+   <div class="total" id="total">Total : 0 USD</div>
+   <div class="small" id="totalfc"></div>
+  </div>
+ </section>
+ <section id="paiement">
+  <h2>Finaliser la commande et payer</h2>
+  <div class="panel">
+   <p class="small">Choisissez le moyen de paiement que vous utiliserez. Le numéro correspondant sera affiché pour faciliter le transfert.</p>
+   <div class="field"><label for="customer">Votre nom</label><input id="customer" placeholder="Nom et prénom"></div>
+   <div class="field"><label for="customerphone">Votre numéro de téléphone</label><input id="customerphone" type="tel" placeholder="+243 …"></div>
+   <div class="field"><label for="address">Ville / commune ou adresse de livraison (facultatif)</label><input id="address" placeholder="Ex. Lubumbashi, …"></div>
+   <div class="field"><label>Moyen de paiement</label></div>
+   <div class="paymethods">
+    <label class="paychoice"><input type="radio" name="payment" value="Orange Money" checked><span><strong>Orange Money</strong><br><span class="small">+243 858 809 639</span></span></label>
+    <label class="paychoice"><input type="radio" name="payment" value="Airtel Money"><span><strong>Airtel Money</strong><br><span class="small">+243 995 727 352</span></span></label>
+    <label class="paychoice"><input type="radio" name="payment" value="M-Pesa"><span><strong>M-Pesa</strong><br><span class="small">+243 814 080 288</span></span></label>
+   </div>
+   <div class="payinfo" id="payinfo">
+    <strong>Envoyez votre paiement par Orange Money au :</strong>
+    <div class="paynumber" id="paynumber">+243 858 809 639</div>
+    <button class="secondary" type="button" id="copy">Copier le numéro</button>
+    <p class="small">Vérifiez le nom du bénéficiaire affiché par votre opérateur avant de confirmer le transfert. Ne partagez jamais votre code PIN.</p>
+   </div>
+   <div class="field"><label for="reference">Référence de transaction (si vous avez déjà payé)</label><input id="reference" placeholder="À compléter après le transfert"></div>
+   <div class="field"><label for="comment">Message complémentaire (facultatif)</label><textarea id="comment" rows="2" placeholder="Précisions sur la commande…"></textarea></div>
+   <div class="actions">
+    <button class="primary" id="whatsapp" type="button">Envoyer la commande sur WhatsApp</button>
+   </div>
+   <p class="small">L'envoi sur WhatsApp ne constitue pas une preuve de paiement. La boutique confirmera la commande après contrôle du transfert reçu.</p>
+  </div>
+ </section>
+</main>
+<footer><div class="wrap">
+ <strong>Boutique NeoLife</strong><br>
+ Distributeur indépendant NeoLife : 026-9702482<br>
+ Commandes WhatsApp : <a href="https://wa.me/243858809639">+243 858 809 639</a><br>
+ <a href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Accéder à mon espace NeoLife</a>
+</div></footer>
+<script>
+const WHATSAPP = "243858809639";
+const USD_TO_CDF = 2312.54; // Taux indicatif à actualiser selon le taux de vente appliqué.
+const products = [
+ {name:"Tre-en-en",pack:"60 comprimés",price:40,category:"Nutrition et bien-être",desc:"Complément alimentaire NeoLife à base de concentrés de céréales. Consultez l’étiquette et les conseils d’utilisation officiels."},
+ {name:"Pro Vitality",pack:"30 sachets",price:102,category:"Nutrition et bien-être",desc:"Produit nutritionnel NeoLife en sachets. Pour les ingrédients et le mode d’emploi, référez-vous à l’emballage officiel."},
+ {name:"Cal-Mag chélaté avec Vitamine D",pack:"90 comprimés",price:30,category:"Minéraux et vitamines",desc:"Apporte du calcium, du magnésium et de la vitamine D. Le calcium et la vitamine D contribuent au maintien d’une ossature normale."},
+ {name:"Zinc chélaté",pack:"100 comprimés",price:34,category:"Minéraux et vitamines",image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/ChelatedZinc/landingpage_l.jpg",desc:"Complément apportant du zinc sous forme chélatée. Le zinc contribue notamment au fonctionnement normal du système immunitaire."},
+ {name:"Tonique équilibrant",pack:"100 ml",price:42,category:"Soins et hygiène",desc:"Produit de soin NeoLife. Consultez l’étiquette du produit pour connaître les ingrédients et les précautions d’emploi."},
+ {name:"Gel d’aloe vera",pack:"100 ml",price:32,category:"Soins et hygiène",image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/AloeVeraGel/landingpage_l.jpg",desc:"Gel d’aloe vera Nutriance. Utilisez conformément aux indications figurant sur l’emballage."},
+ {name:"Vita Guard",pack:"120 comprimés",price:70,category:"Minéraux et vitamines",desc:"Complément alimentaire multinutritionnel NeoLife. Respectez les indications et la portion journalière de l’étiquette."},
+ {name:"Vita Squares",pack:"180 comprimés",price:46,category:"Minéraux et vitamines",desc:"Complément alimentaire NeoLife. Vérifiez la composition, les allergènes et les recommandations sur l’emballage."},
+ {name:"Super Gro",pack:"1 litre",price:36,category:"Entretien et agriculture",desc:"Produit destiné à l’utilisation agricole. Respectez les doses, les cultures concernées et les instructions de l’étiquette."},
+ {name:"Care",pack:"1 litre",price:26,category:"Entretien et agriculture",desc:"Produit NeoLife d’entretien domestique. Utilisez selon les instructions et précautions figurant sur l’étiquette."}
+];
+let cart = {};
+const money = n => "$" + n.toFixed(2);
+const cdf = n => new Intl.NumberFormat("fr-FR",{maximumFractionDigits:0}).format(Math.round(n*USD_TO_CDF)) + " FC";
+function renderProducts(){
+ const q=document.getElementById("search").value.toLowerCase().trim();
+ const cat=document.getElementById("category").value;
+ const items=products.filter(p=>(!cat||p.category===cat)&&(`${p.name} ${p.desc} ${p.pack}`).toLowerCase().includes(q));
+ document.getElementById("catalogue").innerHTML=items.map(p=>{
+  const image=p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.parentElement.textContent='N';this.remove()">`:p.name.slice(0,1).toUpperCase();
+  return `<article class="card"><div class="photo">${image}</div><div class="cardbody"><div class="category">${p.category}</div><h3>${p.name}</h3><div class="pack">${p.pack}</div><p class="desc">${p.desc}</p><div class="price">${money(p.price)}</div><div class="fc">Environ ${cdf(p.price)}</div><button class="primary" type="button" onclick="addToCart('${p.name.replace(/'/g,"\\'")}')">Ajouter au panier</button></div></article>`;
+ }).join("")||'<p class="empty">Aucun produit ne correspond à votre recherche.</p>';
+}
+function addToCart(name){cart[name]=(cart[name]||0)+1;renderCart();document.getElementById("panier").scrollIntoView({behavior:"smooth",block:"start"});}
+function changeQty(name,delta){cart[name]=(cart[name]||0)+delta;if(cart[name]<=0)delete cart[name];renderCart();}
+function totalUSD(){return Object.entries(cart).reduce((s,[n,q])=>s+products.find(p=>p.name===n).price*q,0);}
+function renderCart(){
+ const entries=Object.entries(cart), el=document.getElementById("cart");
+ if(!entries.length)el.innerHTML='<div class="empty">Votre panier est vide. Ajoutez un produit pour commencer.</div>';
+ else el.innerHTML=entries.map(([n,q])=>{const p=products.find(x=>x.name===n);return `<div class="cartline"><div><strong>${n}</strong><br><span class="small">${money(p.price)} × ${q} = ${money(p.price*q)}</span></div><div class="qty"><button class="secondary" type="button" onclick="changeQty('${n.replace(/'/g,"\\'")}',-1)">−</button><strong>${q}</strong><button class="secondary" type="button" onclick="changeQty('${n.replace(/'/g,"\\'")}',1)">+</button></div></div>`}).join("");
+ const total=totalUSD();document.getElementById("total").textContent="Total : "+money(total);document.getElementById("totalfc").textContent=total?"Environ "+cdf(total)+" (taux indicatif : 1 USD = "+USD_TO_CDF+" FC)":"";
+}
+const paymentNumbers={"Orange Money":"+243 858 809 639","Airtel Money":"+243 995 727 352","M-Pesa":"+243 814 080 288"};
+function selectedPayment(){return document.querySelector('input[name="payment"]:checked').value;}
+function updatePayment(){const method=selectedPayment(),number=paymentNumbers[method];document.getElementById("paynumber").textContent=number;document.getElementById("payinfo").querySelector("strong").textContent="Envoyez votre paiement par "+method+" au :";}
+document.querySelectorAll('input[name="payment"]').forEach(r=>r.addEventListener("change",updatePayment));
+document.getElementById("copy").addEventListener("click",async()=>{const number=document.getElementById("paynumber").textContent.replace(/\s/g,"");try{await navigator.clipboard.writeText(number);document.getElementById("copy").textContent="Numéro copié";}catch(e){alert("Veuillez copier ce numéro : "+document.getElementById("paynumber").textContent);}});
+document.getElementById("whatsapp").addEventListener("click",()=>{
+ const entries=Object.entries(cart);if(!entries.length){alert("Ajoutez au moins un produit au panier.");return;}
+ const name=document.getElementById("customer").value.trim(),phone=document.getElementById("customerphone").value.trim();
+ if(!name||!phone){alert("Veuillez renseigner votre nom et votre numéro de téléphone.");return;}
+ const method=selectedPayment(),number=paymentNumbers[method];
+ const lines=entries.map(([n,q])=>{const p=products.find(x=>x.name===n);return `- ${n} (${p.pack}) x${q} : ${money(p.price*q)}`;}).join("\n");
+ const total=totalUSD();
+ const msg=`Bonjour, je souhaite passer une commande à la Boutique NeoLife.\n\nNom : ${name}\nTéléphone : ${phone}\nLivraison : ${document.getElementById("address").value.trim()||"À préciser"}\n\nCommande :\n${lines}\n\nTOTAL : ${money(total)} (environ ${cdf(total)})\n\nMoyen de paiement choisi : ${method}\nNuméro de réception : ${number}\nRéférence de transaction : ${document.getElementById("reference").value.trim()||"À communiquer après paiement"}\nMessage : ${document.getElementById("comment").value.trim()||"Aucun"}\n\nMerci de confirmer la disponibilité et les modalités de livraison. Je comprends que la commande sera confirmée après vérification du paiement.`;
+ window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank","noopener");
+});
+document.getElementById("search").addEventListener("input",renderProducts);
+document.getElementById("category").addEventListener("change",renderProducts);
+renderProducts();renderCart();updatePayment();
+</script>
 </body>
 </html>
