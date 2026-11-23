@@ -40,6 +40,17 @@ section{margin-top:32px}.panel{background:#fff;border:1px solid var(--line);bord
 .paynumber{font-size:1.15rem;font-weight:800;letter-spacing:.3px}
 .small{font-size:.82rem;color:var(--muted)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
 footer{background:#123e2c;color:#e8f3ec;padding:26px 0;font-size:.9rem}footer a{color:#fff}
+/* Espace opportunité distributeur */
+.opportunity{background:linear-gradient(135deg,#104b32,#218354);color:#fff;border-radius:16px;padding:24px;margin-top:32px}
+.opportunity h2{font-size:1.45rem;margin:0 0 10px;color:#fff}
+.opportunity>p{max-width:760px;color:#edf7f0;margin:0 0 18px}
+.opportunity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.opportunity-card{background:#fff;color:var(--ink);border-radius:13px;padding:17px;display:flex;flex-direction:column;gap:9px}
+.opportunity-card h3{font-size:1.05rem;margin:0}
+.opportunity-card p{font-size:.9rem;color:var(--muted);margin:0;flex:1}
+.opportunity-card .btn{width:100%;text-align:center}
+.opportunity-note{font-size:.8rem!important;color:#e5f1e9!important;margin:14px 0 0!important}
+
 .empty{color:var(--muted);padding:12px 0}
 @media(max-width:600px){h1{font-size:1.4rem}.panel{padding:14px}.top{align-items:flex-start}}
 </style>
@@ -52,7 +63,7 @@ footer{background:#123e2c;color:#e8f3ec;padding:26px 0;font-size:.9rem}footer a{
    <a class="btn gold" href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Mon espace NeoLife</a>
   </div>
   <p>Découvrez notre sélection de produits NeoLife pour le bien-être, la nutrition et l'entretien. Choisissez vos articles et envoyez votre commande directement sur WhatsApp.</p>
-  <nav><a href="#produits">Produits</a><a href="#panier">Mon panier</a><a href="#paiement">Paiement Mobile Money</a></nav>
+  <nav><a href="#produits">Produits</a><a href="#panier">Mon panier</a><a href="#paiement">Paiement Mobile Money</a><a href="#devenir-distributeur">Devenir distributeur</a></nav>
  </div>
 </header>
 <main class="wrap">
@@ -102,6 +113,24 @@ footer{background:#123e2c;color:#e8f3ec;padding:26px 0;font-size:.9rem}footer a{
    <p class="small">L'envoi sur WhatsApp ne constitue pas une preuve de paiement. La boutique confirmera la commande après contrôle du transfert reçu.</p>
   </div>
  </section>
+
+ <section id="devenir-distributeur" class="opportunity">
+  <h2>Et si vous deveniez distributeur indépendant NeoLife ?</h2>
+  <p>Vous souhaitez découvrir les produits NeoLife et développer votre propre activité commerciale ? Découvrez les possibilités, les conditions d'adhésion et les prochaines étapes. Vous pouvez commencer directement depuis notre site officiel de recommandation ou demander un accompagnement personnel avant de vous décider.</p>
+  <div class="opportunity-grid">
+   <div class="opportunity-card">
+    <h3>1. Inscription en ligne</h3>
+    <p>Accédez à notre espace officiel NeoLife pour découvrir le parcours d'adhésion et les modalités disponibles dans votre pays. Votre parrain sera associé via notre lien personnel.</p>
+    <a class="btn primary" href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Découvrir l'inscription NeoLife</a>
+   </div>
+   <div class="opportunity-card">
+    <h3>2. Être accompagné sur WhatsApp</h3>
+    <p>Posez vos questions avant de vous inscrire : fonctionnement de la distribution, conditions, produits, démarrage et accompagnement.</p>
+    <a class="btn secondary" href="https://wa.me/243858809639?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20l%27opportunit%C3%A9%20de%20devenir%20distributeur%20NeoLife.%20Pouvez-vous%20m%27expliquer%20les%20conditions%20et%20les%20%C3%A9tapes%20%3F" target="_blank" rel="noopener">Parler avec un accompagnateur</a>
+   </div>
+  </div>
+  <p class="opportunity-note">Distributeur indépendant : 026-9702482 • L'adhésion, les éventuels frais et les conditions dépendent du marché et des règles NeoLife applicables. Les revenus ne sont pas garantis et dépendent des ventes et de l'activité commerciale.</p>
+ </section>
 </main>
 <footer><div class="wrap">
  <strong>Boutique NeoLife</strong><br>
@@ -113,16 +142,16 @@ footer{background:#123e2c;color:#e8f3ec;padding:26px 0;font-size:.9rem}footer a{
 const WHATSAPP = "243858809639";
 const USD_TO_CDF = 2312.54; // Taux indicatif à actualiser selon le taux de vente appliqué.
 const products = [
- {name:"Tre-en-en",pack:"60 comprimés",price:40,category:"Nutrition et bien-être",desc:"Complément alimentaire NeoLife à base de concentrés de céréales. Consultez l’étiquette et les conseils d’utilisation officiels."},
- {name:"Pro Vitality",pack:"30 sachets",price:102,category:"Nutrition et bien-être",desc:"Produit nutritionnel NeoLife en sachets. Pour les ingrédients et le mode d’emploi, référez-vous à l’emballage officiel."},
- {name:"Cal-Mag chélaté avec Vitamine D",pack:"90 comprimés",price:30,category:"Minéraux et vitamines",desc:"Apporte du calcium, du magnésium et de la vitamine D. Le calcium et la vitamine D contribuent au maintien d’une ossature normale."},
+ {name:"Tre-en-en",pack:"60 comprimés",price:40,category:"Nutrition et bien-être",image:"https://newlifevitaminshop.com/cdn/shop/products/Tre-en-en_Grain_Concentrates_580x%402x.jpg?v=1531349231",desc:"Complément alimentaire NeoLife à base de concentrés de céréales. Consultez l’étiquette et les conseils d’utilisation officiels."},
+ {name:"Pro Vitality",pack:"30 sachets",price:102,category:"Nutrition et bien-être",image:"https://newlifevitaminshop.com/cdn/shop/files/Pro_Vitality_Box_New_580x%402x.jpg?v=1731094526",desc:"Produit nutritionnel NeoLife en sachets. Pour les ingrédients et le mode d’emploi, référez-vous à l’emballage officiel."},
+ {name:"Cal-Mag chélaté avec Vitamine D",pack:"90 comprimés",price:30,category:"Minéraux et vitamines",image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/us/sku/3404/landingpage_l.jpg",desc:"Apporte du calcium, du magnésium et de la vitamine D. La photo peut montrer un conditionnement d’un autre marché."},
  {name:"Zinc chélaté",pack:"100 comprimés",price:34,category:"Minéraux et vitamines",image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/ChelatedZinc/landingpage_l.jpg",desc:"Complément apportant du zinc sous forme chélatée. Le zinc contribue notamment au fonctionnement normal du système immunitaire."},
- {name:"Tonique équilibrant",pack:"100 ml",price:42,category:"Soins et hygiène",desc:"Produit de soin NeoLife. Consultez l’étiquette du produit pour connaître les ingrédients et les précautions d’emploi."},
+ {name:"Tonique équilibrant",pack:"100 ml",price:42,category:"Soins et hygiène",image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/ug/product/BalancingTonic/landingpage_l.jpg",desc:"Produit de soin Nutriance. Consultez l’étiquette du produit pour connaître les ingrédients et les précautions d’emploi."},
  {name:"Gel d’aloe vera",pack:"100 ml",price:32,category:"Soins et hygiène",image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/za/product/AloeVeraGel/landingpage_l.jpg",desc:"Gel d’aloe vera Nutriance. Utilisez conformément aux indications figurant sur l’emballage."},
- {name:"Vita Guard",pack:"120 comprimés",price:70,category:"Minéraux et vitamines",desc:"Complément alimentaire multinutritionnel NeoLife. Respectez les indications et la portion journalière de l’étiquette."},
- {name:"Vita Squares",pack:"180 comprimés",price:46,category:"Minéraux et vitamines",desc:"Complément alimentaire NeoLife. Vérifiez la composition, les allergènes et les recommandations sur l’emballage."},
- {name:"Super Gro",pack:"1 litre",price:36,category:"Entretien et agriculture",desc:"Produit destiné à l’utilisation agricole. Respectez les doses, les cultures concernées et les instructions de l’étiquette."},
- {name:"Care",pack:"1 litre",price:26,category:"Entretien et agriculture",desc:"Produit NeoLife d’entretien domestique. Utilisez selon les instructions et précautions figurant sur l’étiquette."}
+ {name:"Vita Guard",pack:"120 comprimés",price:70,category:"Minéraux et vitamines",image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/cm/product/VitaGuard/landingpage_l.jpg",desc:"Complément alimentaire NeoLife. Respectez les indications et la portion journalière de l’étiquette."},
+ {name:"Vita Squares",pack:"180 comprimés",price:46,category:"Minéraux et vitamines",image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/sz/product/VitaSquares/landingpage_l.jpg",desc:"Complément alimentaire NeoLife. Vérifiez la composition, les allergènes et les recommandations sur l’emballage."},
+ {name:"Super Gro",pack:"1 litre",price:36,category:"Entretien et agriculture",image:"https://web.fasostore.com/1261-large_default/super-gro-1-litre-engrais-liquide-bio.jpg",desc:"Produit destiné à l’utilisation agricole. Respectez les doses, les cultures concernées et les instructions de l’étiquette."},
+ {name:"Care",pack:"1 litre",price:26,category:"Entretien et agriculture",image:"https://i0.wp.com/www.yvessikanewlifeshop.com/wp-content/uploads/2025/02/1675317340818.jpg?fit=480%2C517&ssl=1",desc:"Produit NeoLife d’entretien domestique. Utilisez selon les instructions et précautions figurant sur l’étiquette."}
 ];
 let cart = {};
 const money = n => "$" + n.toFixed(2);
