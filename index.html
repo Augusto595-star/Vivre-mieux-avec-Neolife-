@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#176b45">
-<title>Boutique NeoLife | Vivre mieux</title>
+<meta name="description" content="Découvrez les produits NeoLife, consultez leurs fiches, commandez sur WhatsApp et découvrez l’opportunité de distribution."><title>Boutique NeoLife | Vivre mieux</title>
 <style>
 :root{--green:#176b45;--green2:#eaf5ee;--ink:#203128;--muted:#66736b;--line:#e1e9e3;--gold:#f3b544}
 *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#f7faf8;line-height:1.5}
@@ -28,6 +28,15 @@ h1{font-size:1.7rem;margin:0 0 8px}h2{font-size:1.3rem;margin:0 0 14px}
 button,.btn{border:0;border-radius:10px;padding:11px 14px;font-weight:700;font-size:.93rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}
 .primary{background:var(--green);color:#fff}.secondary{background:var(--green2);color:var(--green);border:1px solid #cfe4d5}.gold{background:var(--gold);color:#352600}
 button:disabled{opacity:.45;cursor:not-allowed}.card button{width:100%;margin-top:12px}
+.product-details{margin:10px 0 2px;border-top:1px solid var(--line);padding-top:9px}
+.product-details summary{cursor:pointer;color:var(--green);font-weight:700;font-size:.92rem;list-style:none}
+.product-details summary::-webkit-details-marker{display:none}
+.product-details summary:after{content:'＋';margin-left:7px}
+.product-details[open] summary:after{content:'−'}
+.detail-content{font-size:.88rem;color:#526158;padding:8px 0;line-height:1.55}
+.whatsapp-float{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 5px 18px #0003;z-index:1000}
+#topBtn{position:fixed;right:25px;bottom:88px;width:44px;height:44px;border:0;border-radius:50%;background:#176b45;color:#fff;font-size:22px;box-shadow:0 4px 14px #0003;z-index:999;display:none}
+@media(max-width:600px){.whatsapp-float{right:14px;bottom:14px}#topBtn{right:21px;bottom:80px}}
 section{margin-top:32px}.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px}
 .cartline{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:10px 0;align-items:center}.cartline:last-child{border:0}
 .qty{display:flex;align-items:center;gap:7px}.qty button{padding:5px 10px}.total{font-size:1.2rem;font-weight:800;color:var(--green);margin-top:12px}
@@ -51,6 +60,11 @@ footer{background:#123e2c;color:#e8f3ec;padding:26px 0;font-size:.9rem}footer a{
 .opportunity-card .btn{width:100%;text-align:center}
 .opportunity-note{font-size:.8rem!important;color:#e5f1e9!important;margin:14px 0 0!important}
 
+.reviews{background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px;margin-top:32px}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.review-note{font-size:.88rem;color:var(--muted)}
+.review-form{display:grid;gap:10px}
+.review-form input,.review-form select,.review-form textarea{width:100%;border:1px solid #ccd9d0;border-radius:10px;padding:12px;font:inherit;background:#fff}
 .empty{color:var(--muted);padding:12px 0}
 @media(max-width:600px){h1{font-size:1.4rem}.panel{padding:14px}.top{align-items:flex-start}}
 </style>
@@ -63,7 +77,7 @@ footer{background:#123e2c;color:#e8f3ec;padding:26px 0;font-size:.9rem}footer a{
    <a class="btn gold" href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Mon espace NeoLife</a>
   </div>
   <p>Découvrez notre sélection de produits NeoLife pour le bien-être, la nutrition et l'entretien. Choisissez vos articles et envoyez votre commande directement sur WhatsApp.</p>
-  <nav><a href="#produits">Produits</a><a href="#panier">Mon panier</a><a href="#paiement">Paiement Mobile Money</a><a href="#devenir-distributeur">Devenir distributeur</a></nav>
+  <nav><a href="#produits">Produits</a><a href="#panier">Mon panier</a><a href="#paiement">Paiement Mobile Money</a><a href="#commentaires">Commentaires</a><a href="#devenir-distributeur">Devenir distributeur</a></nav>
  </div>
 </header>
 <main class="wrap">
@@ -114,14 +128,39 @@ footer{background:#123e2c;color:#e8f3ec;padding:26px 0;font-size:.9rem}footer a{
   </div>
  </section>
 
+ <section id="commentaires" class="reviews">
+  <h2>Commentaires et avis des clients</h2>
+  <p class="review-note">Vous avez une question ou souhaitez partager votre expérience ? Envoyez votre commentaire directement au distributeur sur WhatsApp. Votre avis ne sera pas publié automatiquement sur le site.</p>
+  <div class="reviews-grid">
+   <div>
+    <h3>Donner votre avis</h3>
+    <form id="reviewForm" class="review-form">
+     <label for="reviewName">Votre nom</label>
+     <input id="reviewName" required maxlength="80" placeholder="Votre nom">
+     <label for="reviewRating">Votre appréciation</label>
+     <select id="reviewRating" required><option value="">Choisir une note</option><option value="5/5">★★★★★ – Excellent</option><option value="4/5">★★★★☆ – Très bien</option><option value="3/5">★★★☆☆ – Bien</option><option value="2/5">★★☆☆☆ – À améliorer</option><option value="1/5">★☆☆☆☆ – Décevant</option></select>
+     <label for="reviewText">Votre commentaire</label>
+     <textarea id="reviewText" rows="4" required maxlength="1000" placeholder="Écrivez votre avis ou votre question…"></textarea>
+     <button class="primary" type="submit">Envoyer mon commentaire sur WhatsApp</button>
+    </form>
+   </div>
+   <div>
+    <h3>Une question avant de commander ?</h3>
+    <p>Vous pouvez demander des précisions sur un produit, son conditionnement, son utilisation ou la livraison.</p>
+    <a class="btn secondary" href="https://wa.me/243858809639?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20la%20Boutique%20NeoLife." target="_blank" rel="noopener">Poser une question sur WhatsApp</a>
+    <p class="review-note">Les témoignages ne remplacent pas les conseils d'un professionnel de santé. Les expériences individuelles ne garantissent pas un résultat identique pour tous.</p>
+   </div>
+  </div>
+ </section>
+
  <section id="devenir-distributeur" class="opportunity">
   <h2>Et si vous deveniez distributeur indépendant NeoLife ?</h2>
   <p>Vous souhaitez découvrir les produits NeoLife et développer votre propre activité commerciale ? Découvrez les possibilités, les conditions d'adhésion et les prochaines étapes. Vous pouvez commencer directement depuis notre site officiel de recommandation ou demander un accompagnement personnel avant de vous décider.</p>
   <div class="opportunity-grid">
    <div class="opportunity-card">
     <h3>1. Inscription en ligne</h3>
-    <p>Accédez à notre espace officiel NeoLife pour découvrir le parcours d'adhésion et les modalités disponibles dans votre pays. Votre parrain sera associé via notre lien personnel.</p>
-    <a class="btn primary" href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Découvrir l'inscription NeoLife</a>
+    <p>Accédez à notre espace NeoLife réservé aux clients. Recherchez ensuite le lien « Inscrivez-vous et économisez » et suivez les étapes affichées pour découvrir le parcours d’adhésion.</p>
+    <a class="btn primary" href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Accéder à mon espace NeoLife</a>
    </div>
    <div class="opportunity-card">
     <h3>2. Être accompagné sur WhatsApp</h3>
@@ -138,6 +177,8 @@ footer{background:#123e2c;color:#e8f3ec;padding:26px 0;font-size:.9rem}footer a{
  Commandes WhatsApp : <a href="https://wa.me/243858809639">+243 858 809 639</a><br>
  <a href="https://shopneolife.com/augustinmpyanakabayo" target="_blank" rel="noopener">Accéder à mon espace NeoLife</a>
 </div></footer>
+<a class="whatsapp-float" href="https://wa.me/243858809639?text=Bonjour%2C%20je%20souhaite%20des%20renseignements%20sur%20les%20produits%20NeoLife." target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp" title="Contacter sur WhatsApp">☏</a>
+<button id="topBtn" type="button" aria-label="Retour en haut" title="Retour en haut">↑</button>
 <script>
 const WHATSAPP = "243858809639";
 const USD_TO_CDF = 2312.54; // Taux indicatif à actualiser selon le taux de vente appliqué.
@@ -152,7 +193,19 @@ const products = [
  {name:"Vita Squares",pack:"180 comprimés",price:46,category:"Minéraux et vitamines",image:"https://s3-us-west-1.amazonaws.com/static.neolife.com/market/sz/product/VitaSquares/landingpage_l.jpg",desc:"Complément alimentaire NeoLife. Vérifiez la composition, les allergènes et les recommandations sur l’emballage."},
  {name:"Super Gro",pack:"1 litre",price:36,category:"Entretien et agriculture",image:"https://web.fasostore.com/1261-large_default/super-gro-1-litre-engrais-liquide-bio.jpg",desc:"Produit destiné à l’utilisation agricole. Respectez les doses, les cultures concernées et les instructions de l’étiquette."},
  {name:"Care",pack:"1 litre",price:26,category:"Entretien et agriculture",image:"https://i0.wp.com/www.yvessikanewlifeshop.com/wp-content/uploads/2025/02/1675317340818.jpg?fit=480%2C517&ssl=1",desc:"Produit NeoLife d’entretien domestique. Utilisez selon les instructions et précautions figurant sur l’étiquette."}
-];
+ ];
+const productDetails = {
+ "Tre-en-en":"Formule nutritionnelle élaborée à partir de concentrés de grains entiers, notamment le blé, le riz et le soja. Elle apporte des lipides et des stérols végétaux qui complètent l’alimentation quotidienne. Ce produit n’est pas un médicament. Consultez l’étiquette de votre boîte pour connaître la portion recommandée, les ingrédients exacts et les précautions d’emploi.",
+ "Pro Vitality":"Complément nutritionnel en sachets quotidiens. La formule est présentée comme apportant notamment des lipides et stérols végétaux, des caroténoïdes, des oméga-3, des vitamines et des minéraux. Vérifiez la notice et l’étiquette correspondant à votre lot avant utilisation.",
+ "Cal-Mag chélaté avec Vitamine D":"Associe du calcium et du magnésium sous forme chélatée à de la vitamine D. Le calcium contribue au maintien d’une ossature et d’une dentition normales. Le magnésium participe au fonctionnement normal des muscles et du système nerveux. La vitamine D contribue à l’absorption et à l’utilisation normales du calcium et du phosphore. Vérifiez les quantités et la portion sur l’étiquette.",
+ "Zinc chélaté":"Le zinc est un oligo-élément essentiel qui intervient dans plusieurs fonctions de l’organisme, notamment le fonctionnement normal du système immunitaire et la protection des cellules contre le stress oxydatif. Respectez la portion indiquée sur l’emballage et évitez de cumuler plusieurs compléments contenant du zinc sans conseil professionnel.",
+ "Tonique équilibrant":"Soin destiné à rafraîchir et tonifier la peau du visage et du cou. La description du produit mentionne notamment des extraits d’algue, de ginseng et de ginkgo biloba. Après le nettoyage du visage, appliquez selon les indications de l’emballage. Évitez le contact avec les yeux et cessez l’utilisation en cas d’irritation.",
+ "Gel d’aloe vera":"Soin cosmétique pour la peau. L’étiquette consultée mentionne du jus ou extrait de feuille d’aloe vera, du panthénol, de l’allantoïne et des extraits botaniques. Appliquez sur la peau selon les indications de l’emballage. Produit destiné à un usage externe ; évitez le contact avec les yeux.",
+ "Vita Guard":"Complément à croquer de la gamme de nutrition NeoLife pour enfants. Il est destiné à compléter les apports alimentaires et ne remplace pas une alimentation équilibrée. Avant de le donner à un enfant, vérifiez impérativement l’âge minimum, la portion et les précautions figurant sur l’étiquette. Gardez le flacon hors de portée des jeunes enfants.",
+ "Vita Squares":"Complément multinutritionnel à croquer conçu pour compléter l’alimentation en vitamines et minéraux. Vérifiez la composition et les quantités exactes sur l’étiquette. Respectez strictement l’âge recommandé et la portion indiquée ; ne laissez pas les comprimés à la portée des petits enfants.",
+ "Super Gro":"Surfactant multi-usage destiné à être dilué dans l’eau. Il aide l’eau à mieux s’étaler et à pénétrer, ce qui peut contribuer à limiter le ruissellement. La fiche NeoLife consultée indique une dilution de 1 ml par litre d’eau pour l’usage décrit. Les conditions d’application peuvent varier selon la culture et le traitement associé. Lisez attentivement l’étiquette et respectez les doses indiquées.",
+ "Care":"Désinfectant concentré destiné au nettoyage et à la désinfection de surfaces inertes. La dose, le temps de contact, les surfaces compatibles et la nécessité de rinçage doivent être vérifiés sur l’étiquette de votre bidon. Ne mélangez pas ce produit avec d’autres produits chimiques et gardez-le hors de portée des enfants."
+};
 let cart = {};
 const money = n => "$" + n.toFixed(2);
 const cdf = n => new Intl.NumberFormat("fr-FR",{maximumFractionDigits:0}).format(Math.round(n*USD_TO_CDF)) + " FC";
@@ -162,7 +215,7 @@ function renderProducts(){
  const items=products.filter(p=>(!cat||p.category===cat)&&(`${p.name} ${p.desc} ${p.pack}`).toLowerCase().includes(q));
  document.getElementById("catalogue").innerHTML=items.map(p=>{
   const image=p.image?`<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.parentElement.textContent='N';this.remove()">`:p.name.slice(0,1).toUpperCase();
-  return `<article class="card"><div class="photo">${image}</div><div class="cardbody"><div class="category">${p.category}</div><h3>${p.name}</h3><div class="pack">${p.pack}</div><p class="desc">${p.desc}</p><div class="price">${money(p.price)}</div><div class="fc">Environ ${cdf(p.price)}</div><button class="primary" type="button" onclick="addToCart('${p.name.replace(/'/g,"\\'")}')">Ajouter au panier</button></div></article>`;
+  return `<article class="card"><div class="photo">${image}</div><div class="cardbody"><div class="category">${p.category}</div><h3>${p.name}</h3><div class="pack">${p.pack}</div><p class="desc">${p.desc}</p><details class="product-details"><summary>En savoir plus – fiche produit</summary><div class="detail-content">${productDetails[p.name] || p.desc}<p><strong>Important :</strong> consultez toujours l’étiquette de votre produit pour la composition complète, les informations officielles et les consignes d’utilisation.</p></div></details><div class="price">${money(p.price)}</div><div class="fc">Environ ${cdf(p.price)}</div><button class="primary" type="button" onclick="addToCart('${p.name.replace(/'/g,"\\'")}')">Ajouter au panier</button></div></article>`;
  }).join("")||'<p class="empty">Aucun produit ne correspond à votre recherche.</p>';
 }
 function addToCart(name){cart[name]=(cart[name]||0)+1;renderCart();document.getElementById("panier").scrollIntoView({behavior:"smooth",block:"start"});}
@@ -189,9 +242,21 @@ document.getElementById("whatsapp").addEventListener("click",()=>{
  const msg=`Bonjour, je souhaite passer une commande à la Boutique NeoLife.\n\nNom : ${name}\nTéléphone : ${phone}\nLivraison : ${document.getElementById("address").value.trim()||"À préciser"}\n\nCommande :\n${lines}\n\nTOTAL : ${money(total)} (environ ${cdf(total)})\n\nMoyen de paiement choisi : ${method}\nNuméro de réception : ${number}\nRéférence de transaction : ${document.getElementById("reference").value.trim()||"À communiquer après paiement"}\nMessage : ${document.getElementById("comment").value.trim()||"Aucun"}\n\nMerci de confirmer la disponibilité et les modalités de livraison. Je comprends que la commande sera confirmée après vérification du paiement.`;
  window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank","noopener");
 });
+document.getElementById("reviewForm").addEventListener("submit",(event)=>{
+ event.preventDefault();
+ const name=document.getElementById("reviewName").value.trim();
+ const rating=document.getElementById("reviewRating").value;
+ const comment=document.getElementById("reviewText").value.trim();
+ if(!name||!rating||!comment){alert("Veuillez remplir tous les champs du commentaire.");return;}
+ const msg=`Bonjour, voici un commentaire pour la Boutique NeoLife.\n\nNom : ${name}\nAppréciation : ${rating}\nCommentaire : ${comment}`;
+ window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg),"_blank","noopener");
+});
 document.getElementById("search").addEventListener("input",renderProducts);
 document.getElementById("category").addEventListener("change",renderProducts);
 renderProducts();renderCart();updatePayment();
+const topBtn=document.getElementById("topBtn");
+window.addEventListener("scroll",()=>{topBtn.style.display=window.scrollY>250?"block":"none";},{passive:true});
+topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 </script>
 </body>
 </html>
